@@ -27,6 +27,8 @@ class InputOptions {
     this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
     this.autocorrect = true,
+    this.replaceInputWidget,
+    this.replaceInput = false,
   });
 
   /// Function to call when a mention is triggered in the input,
@@ -107,4 +109,10 @@ class InputOptions {
 
   /// Whether to enable auto-correction. Defaults to true.
   final bool autocorrect;
+
+   /// replace input widget with this
+  final Widget? replaceInputWidget;
+
+  /// when this is true input widget will be replaced
+  final bool replaceInput;
 }
