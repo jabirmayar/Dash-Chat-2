@@ -74,7 +74,8 @@ class InputToolbarState extends State<InputToolbar>
           children: <Widget>[
             if (widget.inputOptions.leading != null)
               ...widget.inputOptions.leading!,
-            Expanded(
+             !widget.inputOptions.replaceInput!
+           ? Expanded(
               child: Directionality(
                 textDirection: widget.inputOptions.inputTextDirection,
                 child: TextField(
@@ -113,7 +114,10 @@ class InputToolbarState extends State<InputToolbar>
                   autocorrect: widget.inputOptions.autocorrect,
                 ),
               ),
-            ),
+            )
+            : Expanded(
+                    child: widget.inputOptions.replaceInputWidget!,
+                  ),
             if (widget.inputOptions.trailing != null &&
                 widget.inputOptions.showTraillingBeforeSend)
               ...widget.inputOptions.trailing!,
